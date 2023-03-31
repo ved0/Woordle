@@ -1,0 +1,25 @@
+#root {
+    text-align: center;
+    width: 100%;
+  .the-board {
+    margin-inline: auto;
+    padding: 0 1em;
+    padding-bottom: 1em;
+    width: fit-content;
+    min-width: 345px;
+    max-width: 960px;
+    border: 1px black solid;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: beige;
+
+    h1 {
+        color:rgb(98, 52, 52);
+    }
+    
+    p {
+        margin-top: 1.25em;
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+  }
+}

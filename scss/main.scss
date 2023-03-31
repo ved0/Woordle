@@ -1,0 +1,8 @@
+@import "./inputField.scss";
+@import "./theBoard.scss";
+
+body {
+    background-image:    url("../public/images/letters.jpg ");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+}

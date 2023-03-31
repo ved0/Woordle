@@ -1,0 +1,38 @@
+.row input {
+  width: 2em;
+  height: 2em;
+  margin: 0.25em 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid grey;
+}
+
+#root {
+  text-align: center;
+  width: 100%;
+}
+#root .the-board {
+  margin-inline: auto;
+  padding: 0 1em;
+  padding-bottom: 1em;
+  width: fit-content;
+  min-width: 345px;
+  max-width: 960px;
+  border: 1px black solid;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: beige;
+}
+#root .the-board h1 {
+  color: rgb(98, 52, 52);
+}
+#root .the-board p {
+  margin-top: 1.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+body {
+  background-image: url("../public/images/letters.jpg ");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+}

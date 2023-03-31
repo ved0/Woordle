@@ -5,11 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "sass": "sass --no-source-map scss/main.scss public/main.css",
+		"watch": "sass --no-source-map --watch scss/main.scss public/main.css",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "author": "Vedad",
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "sass": "^1.60.0"
   }
 }

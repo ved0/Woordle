@@ -1,4 +1,4 @@
-import guessWord from "../algorithmA";
+import guessWord from "../src/game-logic/algorithmA.js";
 
 describe("guessWord() - various inputs", () => {
   /*

@@ -1,4 +1,4 @@
-import pickOneWord from "../algorithmB";
+import pickOneWord from "../src/game-logic/algorithmB.js";
 
 const FIRST_TEST_WORD_LIST = ["hej", "hallå", "miljözon", "tzatziki", "krigszon","sommarstuga"];
 const SECOND_TEST_WORD_LIST = ["hej", "hallå", "miljözon", "tzatziki", "pizzeria","sommarstuga"];

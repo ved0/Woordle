@@ -31,8 +31,13 @@
   font-weight: bold;
 }
 
+.header-list .header-list-item {
+  display: inline;
+}
+
 body {
-  background-image: url("../public/images/letters.jpg ");
+  background-image: url("../static/letters.jpg");
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
+  height: 100vh;
 }

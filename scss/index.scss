@@ -1,0 +1,18 @@
+.header-list {
+    list-style-type: none;
+    padding-top: 2em;
+    
+    .header-list-item {
+        display: inline;
+        padding: 0em 2em;
+        a {
+            color: silver;
+            font-size: 1.5em;
+            text-decoration: none;
+
+            &:hover{
+                color: rgb(124, 124, 124);
+            }
+        } 
+    }
+}

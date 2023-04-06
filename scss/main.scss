@@ -1,8 +1,12 @@
 @import "./inputField.scss";
 @import "./theBoard.scss";
+@import "./index.scss";
+@import "./about.scss";
+@import "./highscore.scss";
 
 body {
-    background-image:    url("../public/images/letters.jpg ");
+    background-image:    url("../static/letters.jpg");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
+    height: 100vh;
 }

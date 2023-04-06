@@ -1,0 +1,20 @@
+.about-the-project {
+  margin-inline: auto;
+  margin-top: 2em;
+  width: 80vw;
+  height: 80vh;
+  opacity: 0.9;
+  background-color: beige;
+  text-align: center;
+  overflow-wrap: break-word;
+
+  .project-header {
+    &:first-child {
+      padding-top: 3em;
+    }
+  }
+  .project-text {
+    width: 80%;
+    margin-inline: auto;
+  }
+}

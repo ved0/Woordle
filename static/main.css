@@ -1,0 +1,118 @@
+.row input {
+  width: 2em;
+  height: 2em;
+  margin: 0.25em 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid grey;
+}
+
+#root {
+  text-align: center;
+  width: 100%;
+}
+#root .the-board {
+  margin-inline: auto;
+  margin-top: 2em;
+  padding: 0 1em;
+  padding-bottom: 1em;
+  width: fit-content;
+  min-width: 345px;
+  max-width: 960px;
+  border: 1px black solid;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: beige;
+}
+#root .the-board h1 {
+  color: rgb(98, 52, 52);
+}
+#root .the-board p {
+  margin-top: 1.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.header-list {
+  list-style-type: none;
+  padding-top: 2em;
+}
+.header-list .header-list-item {
+  display: inline;
+  padding: 0em 2em;
+}
+.header-list .header-list-item a {
+  color: silver;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+.header-list .header-list-item a:hover {
+  color: rgb(124, 124, 124);
+}
+
+.about-the-project {
+  margin-inline: auto;
+  margin-top: 2em;
+  width: 80vw;
+  height: 80vh;
+  opacity: 0.9;
+  background-color: beige;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+.about-the-project .project-header:first-child {
+  padding-top: 3em;
+}
+.about-the-project .project-text {
+  width: 80%;
+  margin-inline: auto;
+}
+
+.highscore {
+  width: 90vw;
+  margin-inline: auto;
+  margin-top: 2em;
+  text-align: center;
+}
+.highscore .top-10-all-time {
+  width: 40%;
+  padding: 0.5em 0;
+  margin-inline: auto;
+  background-color: beige;
+  opacity: 0.9;
+}
+.highscore .top-10-all-time ol {
+  margin-inline: auto;
+  width: fit-content;
+  padding-left: 1em;
+  font-weight: bold;
+}
+.highscore .top-10-all-time ol li {
+  padding: 0.25em 0.25em;
+}
+.highscore .top-10-other {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  gap: 2em;
+}
+.highscore .top-10-other div {
+  padding: 0.5em 1em;
+  background-color: beige;
+  opacity: 0.9;
+}
+.highscore .top-10-other div ol {
+  margin-inline: auto;
+  width: fit-content;
+  padding-left: 1em;
+  font-weight: bold;
+}
+.highscore .top-10-other div ol li {
+  padding: 0.25em 0.25em;
+}
+
+body {
+  background-image: url("../static/letters.jpg");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  height: 100vh;
+}

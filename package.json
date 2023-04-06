@@ -2,11 +2,12 @@
   "name": "woordle",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "sass": "sass --no-source-map scss/main.scss public/main.css",
-		"watch": "sass --no-source-map --watch scss/main.scss public/main.css",
+    "dev": "nodemon .",
+    "sass": "sass --no-source-map scss/main.scss static/main.css",
+    "watch": "sass --no-source-map --watch scss/main.scss static/main.css",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "author": "Vedad",
@@ -15,6 +16,9 @@
     "cross-env": "^7.0.3"
   },
   "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "pug": "^3.0.2",
     "sass": "^1.60.0"
   }
 }

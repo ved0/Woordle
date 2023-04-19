@@ -7,6 +7,28 @@
   border: 2px solid grey;
 }
 
+.highscore-popup > input, button, span {
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 1em;
+}
+
+
+.red {
+  background-color: red;
+}
+.yellow {
+  background-color: yellow;
+}
+.green{
+  background-color: green;
+}
+.row {
+  display: flex;
+}
+
+
+
 #root {
   text-align: center;
   width: 100%;
@@ -23,24 +45,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: beige;
 }
-#root .the-board .highscore-popup > input, #root .the-board button, #root .the-board span {
-  display: block;
-  margin-inline: auto;
-  margin-bottom: 1em;
-}
-#root .the-board .row input {
-  width: 2.5em;
-  height: 2.5em;
-}
-#root .the-board .red {
-  background-color: red;
-}
-#root .the-board .yellow {
-  background-color: yellow;
-}
-#root .the-board .green {
-  background-color: green;
-}
 #root .the-board h1 {
   color: rgb(98, 52, 52);
 }
@@ -52,6 +56,7 @@
 
 .header-list {
   list-style-type: none;
+  text-align: left;
   padding-top: 2em;
 }
 .header-list .header-list-item {
@@ -129,7 +134,7 @@
 }
 
 body {
-  background-image: url("../static/letters.jpg");
+  background-image: url("./assets/letters.jpg");
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   height: 100vh;

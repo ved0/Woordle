@@ -36,15 +36,15 @@ export async function addHighscore(highscore){
 
 export async function viewHighscore(){
     try {
-        console.log("kommer jag hit");
+    //    console.log("kommer jag hit");
         await client.connect();
-        console.log("eller hit");
+    //    console.log("eller hit");
         const result = await client.db("Wordle").collection("highscores").find({}).toArray();
         return result;
     }  catch {
 
     } finally {
         await client.close();
-        console.log("connection closed!");
+   //     console.log("connection closed!");
     }
 }

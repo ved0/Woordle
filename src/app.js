@@ -12,12 +12,15 @@ const GAMES = [];
 app.set("view engine", "pug");
 app.set("views", "./templates");
 
-
 //för att starta spelet
 app.post("/api/games", express.json(), (req, res) => {
   const game = {
     gameId: uuid.v4(),
-    correctWord: pickOneWord(wordList, parseInt(req.body.wordLength), parseInt(req.body.uniqueChars)==2?true:false),
+    correctWord: pickOneWord(
+      wordList,
+      parseInt(req.body.wordLength),
+      parseInt(req.body.uniqueChars) == 2 ? true : false
+    ),
     guesses: [],
     startTime: new Date(),
   };
@@ -32,18 +35,18 @@ app.post("/api/games/:gameId/guesses", express.json(), (req, res) => {
   const game = GAMES.find(
     (existingGame) => existingGame.gameId == req.params.gameId
   );
-  if(game.guesses.length < 6){
-  const guess = req.body.guess;
-  game.guesses.push(guess);
-  if (guess.toLowerCase() == game.correctWord.toLowerCase()) {
-    game.endTime = new Date();
-    res.status(201).send(guessWord(guess, game.correctWord));
+  if (game.guesses.length < 6) {
+    const guess = req.body.guess;
+    game.guesses.push(guess);
+    if (guess.toLowerCase() == game.correctWord.toLowerCase()) {
+      game.endTime = new Date();
+      res.status(201).send(guessWord(guess, game.correctWord));
+    } else {
+      res.status(201).send(guessWord(guess, game.correctWord));
+    }
   } else {
-    res.status(201).send(guessWord(guess, game.correctWord));
+    res.status(400).send(JSON.stringify("This game is over"));
   }
-} else {
-  res.status(400).send(JSON.stringify("This game is over"));
-}
 });
 
 //för att posta highscore
@@ -51,23 +54,15 @@ app.post("/api/games/:gameId/highscore", express.json(), async (req, res) => {
   const game = GAMES.find(
     (existingGame) => existingGame.gameId == req.params.gameId
   );
-  /* to be used instead
-  const highscore = {
-    name: req.body.name,
-    time: endTime - startTime,
-    wordLength: game.correctWord.length,
-    guesses: game.guesses.length,
-  };*/
-  console.log("kommer jag hit då, server");
   const highscore = {
     gameId: game.gameId,
     name: req.body.name,
-    time: (game.endTime - game.startTime)/1000,
+    time: (game.endTime - game.startTime) / 1000,
     wordLength: game.correctWord.length,
     guesses: game.guesses.length,
   };
   await addHighscore(highscore);
-  
+
   res
     .status(201)
     .send(
@@ -96,7 +91,26 @@ app.get("/about", async (req, res) => {
 });
 
 app.get("/highscore", async (req, res) => {
-  res.render("highscore");
+  const temp = await viewHighscore();
+  let highscores = temp
+    .sort((a, b) => {
+      if (a.wordLength == b.wordLength) {
+        if (a.guesses == b.guesses) {
+          return a.time - b.time;
+        } else {
+          return a.guess - b.guess;
+        }
+      } else {
+        return b.wordLength - a.wordLength;
+      }
+    })
+    .map((item) => item);
+  if (highscores.length > 10) {
+    highscores = highscores.slice(0, 10);
+  }
+  res.render("highscore", {
+    highscores: highscores,
+  });
 });
 
 app.use("/static", express.static("./static"));

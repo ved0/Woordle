@@ -1,44 +1,24 @@
 .highscore {
-    width: 90vw;
+  width: 90vw;
+  margin-inline: auto;
+  margin-top: 2em;
+  text-align: center;
+  .top-10-all-time {
+    width: 70%;
+    padding-top: 2em;
+    padding-bottom: 3em;
     margin-inline: auto;
-    margin-top: 2em;
-    text-align: center;
-    .top-10-all-time {
-        width: 40%;
-        padding: 0.5em 0;
-        margin-inline: auto;
-        background-color: beige;
-        opacity: 0.9;
-        ol {
-           margin-inline: auto;
-           width: fit-content;
-           padding-left: 1em;
-           font-weight: bold;
-           li{
-            padding: 0.25em 0.25em;
-           }
+    background-color: beige;
+    opacity: 0.9;
+    .highscore-list {
+      margin-inline: auto;
+      width: 70%;
+      text-align: center;
+      .highscore-list-header {
+        th {
+          border-bottom: solid 2px black;
         }
+      }
     }
-
-    .top-10-other {
-        display: flex;
-        justify-content: center;
-        margin-top: 2em;
-        gap: 2em;
-
-        div {
-            padding: 0.5em 1em;
-            background-color: beige;
-            opacity: 0.9;
-            ol {
-                margin-inline: auto;
-                width: fit-content;
-                padding-left: 1em;
-                font-weight: bold;
-                li{
-                 padding: 0.25em 0.25em;
-                }
-             }
-        }
-    }
+  }
 }

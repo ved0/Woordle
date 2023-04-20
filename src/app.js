@@ -14,20 +14,26 @@ app.set("views", "./templates");
 
 //för att starta spelet
 app.post("/api/games", express.json(), (req, res) => {
+  const word = pickOneWord(
+    wordList,
+    parseInt(req.body.wordLength),
+    parseInt(req.body.uniqueChars) == 2 ? true : false
+  );
   const game = {
-    gameId: uuid.v4(),
-    correctWord: pickOneWord(
-      wordList,
-      parseInt(req.body.wordLength),
-      parseInt(req.body.uniqueChars) == 2 ? true : false
-    ),
+    gameId: word.length > parseInt(req.body.wordLength) ? "404" : uuid.v4(),
+    correctWord: word,
     guesses: [],
     startTime: new Date(),
   };
   console.log(game.correctWord);
   console.log(game.gameId);
   res.status(201).send(game.gameId);
-  GAMES.push(game);
+  if (game.gameId == "404") {
+    console.log("lägger inte till");
+    return;
+  } else {
+    GAMES.push(game);
+  }
 });
 
 //för att gissa ordet
@@ -37,10 +43,16 @@ app.post("/api/games/:gameId/guesses", express.json(), (req, res) => {
   );
   if (game.guesses.length < 6) {
     const guess = req.body.guess;
+    let objectToReturn = {
+      gameId: game.gameId,
+      amountOfGuesses: game.guesses.length,
+    };
     game.guesses.push(guess);
     if (guess.toLowerCase() == game.correctWord.toLowerCase()) {
       game.endTime = new Date();
-      res.status(201).send(guessWord(guess, game.correctWord));
+      objectToReturn.time = (game.endTime - game.startTime) / 1000;
+      objectToReturn.result = "won";
+      res.status(201).send(objectToReturn);
     } else {
       res.status(201).send(guessWord(guess, game.correctWord));
     }

@@ -8,7 +8,7 @@ function App() {
   const [wordLength, setWordLength] = useState(0);
   const [gameId, setGameId] = useState("");
   return (
-    <div className="the-board">
+    <div className="the-game">
       <h1>Wannabe Wordle</h1>
       {isStarted && <TheGame wordLength={wordLength} onGameStart={setStarted} gameId={gameId} />}
       {!isStarted && (

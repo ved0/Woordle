@@ -4,6 +4,7 @@ import Row from "./Row";
 import { useState } from "react";
 
 export default function GameBoard(props) {
+  const [gameState, setGameState] = useState("playing");
   const [invalidGuess, setInvalidGuess] = useState(false);
   const [message, setMessage] = useState("");
   const [correctWord, setCorrectWord] = useState("");
@@ -13,9 +14,9 @@ export default function GameBoard(props) {
       <Row
         wordLength={props.wordLength}
         gameId={props.gameId}
-        gameState={props.gameState}
+        gameState={gameState}
         whenGuessed={setCorrectWord}
-        setGameState={props.setGameState}
+        setGameState={setGameState}
         setInvalidGuess={setInvalidGuess}
         setMessage={setMessage}
         key={index}
@@ -32,14 +33,14 @@ export default function GameBoard(props) {
   );
   gameBoard.push(
     <HighscorePopup
-      gameState={props.gameState}
+      gameState={gameState}
       key={gameBoard.length}
-      setGameState={props.setGameState}
+      setGameState={setGameState}
       gameId={props.gameId}
       correctWord={correctWord}
       onGameStart={props.onGameStart}
     />
   );
 
-  return gameBoard;
+  return <div className="game-board">{gameBoard}</div>;
 }

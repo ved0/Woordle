@@ -11,8 +11,14 @@ export default function OneLetterBox(props) {
       }),
     });
     const data = await resp.json();
+    console.log(data);
     props.setResult(data);
-    props.setGuessed(true);
+    if (data.result == "won") {
+      props.setGuessed(true);
+      props.setGameState("won");
+    } else {
+      props.setGuessed(true);
+    }
   }
 
   const handleKeyUp = (event) => {
@@ -51,10 +57,12 @@ export default function OneLetterBox(props) {
         for (let i = 0; i < inputs.length; i++) {
           inputs[i].disabled = true;
         }
+        props.whenGuessed(word);
+        submitGuess(word);
         if (input.parentElement.nextSibling) {
           input.parentElement.nextSibling.childNodes[0].focus();
+          props.setGuessed(false);
         }
-        submitGuess(word);
       } else {
         props.setMessage("Fill all the fields before pressing enter");
         props.setInvalidGuess(true);

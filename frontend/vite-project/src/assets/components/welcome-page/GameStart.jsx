@@ -1,7 +1,13 @@
+import GenericPopup from "../the-game/GenericPopup";
+import { useState } from "react";
+
 export default function GameStart(props) {
-  function clickHandle() {
+  const [noMatch, setNomatch] = useState(false);
+  const [message, setMessage] = useState("");
+
+  async function clickHandle() {
     const wordLength = parseInt(document.querySelector("#word-length").value);
-    fetch("/api/games", {
+    await fetch("/api/games", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -13,9 +19,16 @@ export default function GameStart(props) {
       }),
     })
       .then((resp) => resp.text())
-      .then((gameId) => props.whatGame(gameId));
-    props.onGameStart(true);
-    props.whenStarted(wordLength);
+      .then((gameId) => {
+        if (gameId == "404") {
+          setMessage("No matching word! Please choose a word with less or more characters");
+          setNomatch(true);
+        } else {
+          props.whatGame(gameId);
+          props.onGameStart(true);
+          props.whenStarted(wordLength);
+        }
+      });
   }
 
   return (
@@ -32,6 +45,7 @@ export default function GameStart(props) {
         Play
       </button>
       <p>Good luck and have fun! &#128525;</p>
+      <GenericPopup noMatch={noMatch} setNomatch={setNomatch} message={message}/>
     </div>
   );
 }

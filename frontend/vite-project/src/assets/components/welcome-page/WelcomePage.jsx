@@ -9,6 +9,7 @@ export default function WelcomePage(props) {
         onGameStart={props.onGameStart}
         whenStarted={props.whenStarted}
         whatGame={props.whatGame}
+        gameId={props.gameId}
       />
     </div>
   );

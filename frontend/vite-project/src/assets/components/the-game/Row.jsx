@@ -8,28 +8,30 @@ export default function Row(props) {
   let row = [];
 
   if (guessed) {
-    let counter = 0;
-    for (let i = 0; i < props.wordLength; i++) {
-      row.push(<OneLetterBox color={whatColor(result[i].result)} key={i} />);
-      if (whatColor(result[i].result) == "green") {
-        counter++;
-        if (counter == props.wordLength) {
-          let temp = "";
-          result.forEach(element => {
-            temp += element.letter;
-          })
-          setTimeout(() => {
-            props.whenGuessed(temp);
-            props.setGameState("won");
-          }, 50);
-        }
+    console.log("kommer jag in hit när jag gissat");
+    console.log(result);
+  /*  if (props.gameState == "won") {
+      for (let i = 0; i < props.wordLength; i++) {
+        console.log("grattis du vann");
+        row.push(<OneLetterBox color={"green"} key={i} />);
       }
-    }
+    } else {*/
+      for (let i = 0; i < props.wordLength; i++) {
+        if(result.result=="won"){
+          row.push(<OneLetterBox color={"green"} key={i} />);
+        }else{
+          row.push(<OneLetterBox color={whatColor(result[i].result)} key={i} />);
+        }
+        console.log("grattis du gissade");
+      }
+/*    }*/
   } else {
     for (let i = 0; i < props.wordLength; i++) {
       row.push(
         <OneLetterBox
           gameId={props.gameId}
+          whenGuessed={props.whenGuessed}
+          setGameState={props.setGameState}
           setInvalidGuess={props.setInvalidGuess}
           setMessage={props.setMessage}
           setResult={setResult}
@@ -40,6 +42,7 @@ export default function Row(props) {
       );
     }
   }
+
   return <div className="row">{row}</div>;
 }
 
@@ -53,6 +56,9 @@ function whatColor(result) {
       break;
     case "misplaced":
       return "yellow";
+      break;
+    default:
+      return "white";
       break;
   }
 }

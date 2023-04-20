@@ -56,8 +56,8 @@ export default function OneLetterBox(props) {
         }
         submitGuess(word);
       } else {
-        console.log("fill all the fields before Enter");
-        alert("Fill in all the fields before submiting");
+        props.setMessage("Fill all the fields before pressing enter");
+        props.setInvalidGuess(true);
       }
     }
   };

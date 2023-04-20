@@ -4,6 +4,7 @@ import OneLetterBox from "./OneLetterBox";
 export default function Row(props) {
   const [result, setResult] = useState([{}]);
   const [guessed, setGuessed] = useState(false);
+
   let row = [];
 
   if (guessed) {
@@ -13,9 +14,14 @@ export default function Row(props) {
       if (whatColor(result[i].result) == "green") {
         counter++;
         if (counter == props.wordLength) {
+          let temp = "";
+          result.forEach(element => {
+            temp += element.letter;
+          })
           setTimeout(() => {
+            props.whenGuessed(temp);
             props.setGameState("won");
-          }, 1000);
+          }, 50);
         }
       }
     }
@@ -24,6 +30,8 @@ export default function Row(props) {
       row.push(
         <OneLetterBox
           gameId={props.gameId}
+          setInvalidGuess={props.setInvalidGuess}
+          setMessage={props.setMessage}
           setResult={setResult}
           setGuessed={setGuessed}
           color={"white"}

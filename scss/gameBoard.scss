@@ -1,0 +1,49 @@
+
+.info-popup {
+    white-space: pre-wrap;
+    background-color: beige;
+    position: fixed;
+    padding: 5em 0;
+    left: 20%;
+    top: 25%;
+    width: 60%;
+    border: rgb(119, 109, 109) solid 1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .generic-button, .play-button {
+    cursor: pointer;
+    display: block;
+    color: white;
+    margin-inline: auto;
+    margin-top: 1em;
+    background-color: rgb(19, 184, 121);
+    width: 125px;
+    height: 2em;
+    border: rgb(119, 109, 109) solid 1px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+      rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+      rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    &:hover {
+      background-color: rgb(67, 215, 158);
+    }
+  }
+
+  .timer {
+    .text {
+        display: block;
+        font-weight: bold;
+    }
+    margin-top: 1em;
+    #minute, #second {
+        font-size: 1em !important;
+        display: inline-block;
+        margin: 0 !important;
+    }
+  }
+
+  h4 {
+    color: rgb(104, 139, 126);
+  }

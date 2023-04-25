@@ -11,7 +11,7 @@
   text-align: center;
   width: 100%;
 }
-#root .the-board {
+#root .the-app {
   margin-inline: auto;
   margin-top: 2em;
   padding: 0 1em;
@@ -23,31 +23,104 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: beige;
 }
-#root .the-board .start-game #unique-letters {
+#root .the-app .intro h3 {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+#root .the-app .intro p {
+  font-size: 1em;
+  font-weight: 100;
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: rgb(104, 103, 103);
+}
+#root .the-app .start-game #unique-letters {
   width: 2em;
 }
-#root .the-board .highscore-popup > input, #root .the-board button, #root .the-board span {
+#root .the-app .start-game label {
+  margin: 0 4px;
+  font-weight: 600;
+  color: rgb(104, 139, 126);
+}
+#root .the-app .start-game .word-length {
+  font-weight: 600;
+  color: black;
+  width: 2em;
+  border-bottom: rgb(19, 184, 121) solid 2px;
+}
+#root .the-app .lost-popup {
+  white-space: pre-wrap;
+}
+#root .the-app .highscore-popup {
+  white-space: pre-wrap;
+}
+#root .the-app .highscore-popup button,
+#root .the-app .highscore-popup .add-to-highscore-button {
+  cursor: pointer;
+  display: block;
+  margin-inline: auto;
+  margin-top: 1em;
+  color: white;
+  background-color: rgb(19, 184, 121);
+  width: 125px;
+  height: 2em;
+  border: rgb(119, 109, 109) solid 1px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+#root .the-app .highscore-popup button:hover,
+#root .the-app .highscore-popup .add-to-highscore-button:hover {
+  background-color: rgb(67, 215, 158);
+}
+#root .the-app .highscore-popup #highscore-name {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#root .the-app .highscore-popup .add-to-highscore-button {
+  background-color: rgb(186, 191, 36);
+}
+#root .the-app .highscore-popup .add-to-highscore-button:hover {
+  background-color: rgb(159, 174, 26);
+}
+#root .the-app .highscore-popup span {
+  padding-top: 1em;
+  font-size: 1.25em;
+  color: rgb(13, 168, 109);
+  font-weight: bold;
+}
+#root .the-app .highscore-popup p {
+  font-size: 1em;
+  color: rgb(104, 103, 103);
+}
+#root .the-app .highscore-popup input,
+#root .the-app .highscore-popup button,
+#root .the-app .highscore-popup span {
   display: block;
   margin-inline: auto;
   margin-bottom: 1em;
 }
-#root .the-board .row input {
+#root .the-app .row input {
   width: 2.5em;
   height: 2.5em;
 }
-#root .the-board .red {
-  background-color: red;
+#root .the-app .red,
+#root .the-app .yellow,
+#root .the-app .green {
+  color: white;
+  font-weight: 600;
 }
-#root .the-board .yellow {
-  background-color: yellow;
+#root .the-app .red {
+  background-color: rgb(185, 31, 31);
 }
-#root .the-board .green {
-  background-color: green;
+#root .the-app .yellow {
+  background-color: rgb(195, 195, 40);
 }
-#root .the-board h1 {
+#root .the-app .green {
+  background-color: rgb(20, 162, 20);
+}
+#root .the-app h1 {
   color: rgb(98, 52, 52);
 }
-#root .the-board p {
+#root .the-app p {
   margin-top: 1.25em;
   font-size: 1.25em;
   font-weight: bold;
@@ -103,13 +176,63 @@
   background-color: beige;
   opacity: 0.9;
 }
+.highscore .top-10-all-time h1 {
+  color: rgb(131, 131, 131);
+}
 .highscore .top-10-all-time .highscore-list {
   margin-inline: auto;
   width: 70%;
   text-align: center;
 }
 .highscore .top-10-all-time .highscore-list .highscore-list-header th {
+  color: rgb(119, 118, 118);
   border-bottom: solid 2px black;
+}
+
+.info-popup {
+  white-space: pre-wrap;
+  background-color: beige;
+  position: fixed;
+  padding: 5em 0;
+  left: 20%;
+  top: 25%;
+  width: 60%;
+  border: rgb(119, 109, 109) solid 1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.generic-button, .play-button {
+  cursor: pointer;
+  display: block;
+  color: white;
+  margin-inline: auto;
+  margin-top: 1em;
+  background-color: rgb(19, 184, 121);
+  width: 125px;
+  height: 2em;
+  border: rgb(119, 109, 109) solid 1px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.generic-button:hover, .play-button:hover {
+  background-color: rgb(67, 215, 158);
+}
+
+.timer {
+  margin-top: 1em;
+}
+.timer .text {
+  display: block;
+  font-weight: bold;
+}
+.timer #minute, .timer #second {
+  font-size: 1em !important;
+  display: inline-block;
+  margin: 0 !important;
+}
+
+h4 {
+  color: rgb(104, 139, 126);
 }
 
 body {

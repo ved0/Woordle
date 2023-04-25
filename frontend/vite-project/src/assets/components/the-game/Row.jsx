@@ -8,38 +8,51 @@ export default function Row(props) {
   let row = [];
 
   if (guessed) {
-    console.log("kommer jag in hit när jag gissat");
-    console.log(result);
-  /*  if (props.gameState == "won") {
-      for (let i = 0; i < props.wordLength; i++) {
-        console.log("grattis du vann");
+    for (let i = 0; i < props.wordLength; i++) {
+      if (result.result == "won") {
         row.push(<OneLetterBox color={"green"} key={i} />);
+      } else {
+        row.push(<OneLetterBox color={whatColor(result[i].result)} key={i} />);
       }
-    } else {*/
-      for (let i = 0; i < props.wordLength; i++) {
-        if(result.result=="won"){
-          row.push(<OneLetterBox color={"green"} key={i} />);
-        }else{
-          row.push(<OneLetterBox color={whatColor(result[i].result)} key={i} />);
-        }
-        console.log("grattis du gissade");
-      }
-/*    }*/
+    }
   } else {
     for (let i = 0; i < props.wordLength; i++) {
-      row.push(
-        <OneLetterBox
-          gameId={props.gameId}
-          whenGuessed={props.whenGuessed}
-          setGameState={props.setGameState}
-          setInvalidGuess={props.setInvalidGuess}
-          setMessage={props.setMessage}
-          setResult={setResult}
-          setGuessed={setGuessed}
-          color={"white"}
-          key={i}
-        />
-      );
+      if (i == 0) {
+        row.push(
+          <OneLetterBox
+            gameId={props.gameId}
+            first={true}
+            whenGuessed={props.whenGuessed}
+            setGameState={props.setGameState}
+            setInvalidGuess={props.setInvalidGuess}
+            setMessage={props.setMessage}
+            setNewRow={props.setNewRow}
+            amountOfRows={props.amountOfRows}
+            setAmountOfRows={props.setAmountOfRows}
+            setResult={setResult}
+            setGuessed={setGuessed}
+            color={"white"}
+            key={i}
+          />
+        );
+      } else {
+        row.push(
+          <OneLetterBox
+            gameId={props.gameId}
+            whenGuessed={props.whenGuessed}
+            setGameState={props.setGameState}
+            setInvalidGuess={props.setInvalidGuess}
+            setMessage={props.setMessage}
+            setNewRow={props.setNewRow}
+            amountOfRows={props.amountOfRows}
+            setAmountOfRows={props.setAmountOfRows}
+            setResult={setResult}
+            setGuessed={setGuessed}
+            color={"white"}
+            key={i}
+          />
+        );
+      }
     }
   }
 

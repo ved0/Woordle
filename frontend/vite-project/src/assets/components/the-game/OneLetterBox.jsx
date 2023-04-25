@@ -11,13 +11,26 @@ export default function OneLetterBox(props) {
       }),
     });
     const data = await resp.json();
-    console.log(data);
     props.setResult(data);
     if (data.result == "won") {
       props.setGuessed(true);
+      props.setAmountOfRows(1);
       props.setGameState("won");
     } else {
       props.setGuessed(true);
+      if (props.amountOfRows < 7) {
+        if (props.amountOfRows == 6) {
+          setTimeout(() => {
+            props.setGameState("no more guesses");
+            props.setMessage(
+              "That was the last guess.  \n Unfortunatly you haven't guessed the word and this game is over.  \n You are welcome to play a new one!"
+            );
+            props.setAmountOfRows(1);
+          }, 1000);
+        } else {
+          props.setAmountOfRows(props.amountOfRows + 1);
+        }
+      }
     }
   }
 
@@ -36,6 +49,7 @@ export default function OneLetterBox(props) {
     if (event.target.disabled) {
       return;
     } else {
+      props.setInvalidGuess(false);
       event.target.value = "";
     }
   };
@@ -59,18 +73,25 @@ export default function OneLetterBox(props) {
         }
         props.whenGuessed(word);
         submitGuess(word);
-        if (input.parentElement.nextSibling) {
-          input.parentElement.nextSibling.childNodes[0].focus();
-          props.setGuessed(false);
-        }
       } else {
-        props.setMessage("Fill all the fields before pressing enter");
+        props.setMessage('Fill all the fields before pressing "Enter"!');
         props.setInvalidGuess(true);
       }
     }
   };
 
-  return (
+  return props.first ? (
+    <input
+      className={props.color}
+      autoFocus
+      type="text"
+      minLength="1"
+      maxLength="1"
+      onKeyUp={handleKeyUp}
+      onKeyDown={handleKeyDown}
+      onClick={handleClick}
+    ></input>
+  ) : (
     <input
       className={props.color}
       type="text"

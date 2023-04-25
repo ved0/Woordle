@@ -1,6 +1,5 @@
 import express from "express";
 import * as uuid from "uuid";
-import bodyParser from "body-parser";
 import { addHighscore, viewHighscore } from "./database/db.js";
 import pickOneWord from "./game-logic/algorithmB.js";
 import guessWord from "./game-logic/algorithmA.js";
@@ -17,7 +16,7 @@ app.post("/api/games", express.json(), (req, res) => {
   const word = pickOneWord(
     wordList,
     parseInt(req.body.wordLength),
-    parseInt(req.body.uniqueChars) == 2 ? true : false
+    parseInt(req.body.uniqueChars) == 2 ? false : true
   );
   const game = {
     gameId: word.length > parseInt(req.body.wordLength) ? "404" : uuid.v4(),
@@ -57,7 +56,8 @@ app.post("/api/games/:gameId/guesses", express.json(), (req, res) => {
       res.status(201).send(guessWord(guess, game.correctWord));
     }
   } else {
-    res.status(400).send(JSON.stringify("This game is over"));
+    objectToReturn.result = "This game is over";
+    res.status(400).send(objectToReturn);
   }
 });
 

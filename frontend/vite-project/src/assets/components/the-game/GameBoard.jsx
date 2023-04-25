@@ -1,46 +1,38 @@
-import GenericPopup from "./GenericPopup";
-import HighscorePopup from "./HighscorePopup";
-import Row from "./Row";
 import { useState } from "react";
+import Row from "./Row";
+import Timer from "./Timer";
 
 export default function GameBoard(props) {
-  const [gameState, setGameState] = useState("playing");
-  const [invalidGuess, setInvalidGuess] = useState(false);
-  const [message, setMessage] = useState("");
-  const [correctWord, setCorrectWord] = useState("");
+  const [amountOfRows, setAmountOfRows] = useState(1);
 
   let gameBoard = Array.from({ length: 6 }, (_, index) => {
     return (
       <Row
+        amountOfRows={amountOfRows}
+        setAmountOfRows={setAmountOfRows}
         wordLength={props.wordLength}
         gameId={props.gameId}
-        gameState={gameState}
-        whenGuessed={setCorrectWord}
-        setGameState={setGameState}
-        setInvalidGuess={setInvalidGuess}
-        setMessage={setMessage}
+        gameState={props.gameState}
+        whenGuessed={props.setCorrectWord}
+        setGameState={props.setGameState}
+        setInvalidGuess={props.setInvalidGuess}
+        setMessage={props.setMessage}
         key={index}
       />
     );
   });
-  gameBoard.push(
-    <GenericPopup
-      invalidGuess={invalidGuess}
-      key={gameBoard.length}
-      setInvalidGuess={setInvalidGuess}
-      message={message}
-    />
+  return props.gameState == "playing" ? (
+    <div className="game-board">
+      {gameBoard.slice(0, amountOfRows)}
+      <Timer
+        setGameState={props.setGameState}
+        gameState={props.gameState}
+        setMessage={props.setMessage}
+        setAmountOfRows={setAmountOfRows}
+      />
+      <h4>You submit a guess by pressing "Enter"</h4>
+    </div>
+  ) : (
+    ""
   );
-  gameBoard.push(
-    <HighscorePopup
-      gameState={gameState}
-      key={gameBoard.length}
-      setGameState={setGameState}
-      gameId={props.gameId}
-      correctWord={correctWord}
-      onGameStart={props.onGameStart}
-    />
-  );
-
-  return <div className="game-board">{gameBoard}</div>;
 }

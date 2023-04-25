@@ -1,16 +1,21 @@
 const GenericPopup = (props) => {
   const handleClose = () => {
-    if(props.noMatch){
+    if (props.noMatch) {
       props.setNomatch(false);
-    }else {
+    } else if (props.message.includes("highscore")) {
+      props.setInvalidGuess(false);
+      props.setGameState("new game");
+    } else {
       props.setInvalidGuess(false);
     }
   };
 
   return props.invalidGuess || props.noMatch ? (
-    <div className="popup">
+    <div className="info-popup">
       <h2>{props.message}</h2>
-      <button onClick={handleClose}>Understood</button>
+      <button className="generic-button" onClick={handleClose}>
+        Understood
+      </button>
     </div>
   ) : (
     ""

@@ -1,39 +1,53 @@
 #root {
   text-align: center;
-  width: 100%;
+  width: 100vw;
   .the-app {
     margin-inline: auto;
     margin-top: 2em;
-    padding: 0 1em;
-    padding-bottom: 1em;
+    padding: 1.5em 1em;
     width: fit-content;
     min-width: 345px;
     max-width: 960px;
-    border: 1px black solid;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: beige;
+    background-color: silver;
+    opacity: 0.9;
+    h1 {
+      font-family: Cascadia Code SemiBold;
+      margin-bottom: 0.5em;
+    }
 
     .intro {
       h3 {
+        font-family: Cascadia Code SemiBold;
         margin: 0;
+        margin-top: 1em;
         margin-bottom: 0.5em;
+        &:first-child{
+         margin-top: 0;
+        }
       }
       p {
+        font-family: Ebrima;
         font-size: 1em;
         font-weight: 100;
         margin: 0;
-        margin-bottom: 0.5em;
-        color: rgb(104, 103, 103);
+        color: black;
+        span {
+          padding: 0 0.25em;
+        }
       }
     }
     .start-game {
+      p,
+      h3 {
+        font-family: Cascadia Code SemiBold;
+      }
       #unique-letters {
         width: 2em;
       }
       label {
+        font-family: Ebrima;
         margin: 0 4px;
-        font-weight: 600;
-        color: rgb(104, 139, 126);
       }
       .word-length {
         font-weight: 600;
@@ -48,46 +62,73 @@
     }
     .highscore-popup {
       white-space: pre-wrap;
+      h3 {
+        color: rgb(129, 142, 13);
+        font-size: 2em;
+      }
       button,
       .add-to-highscore-button {
-        cursor: pointer;
-        display: block;
-        margin-inline: auto;
-        margin-top: 1em;
-        color: white;
         background-color: rgb(19, 184, 121);
-        width: 125px;
-        height: 2em;
-        border: rgb(119, 109, 109) solid 1px;
-        font-weight: 600;
-        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
-          rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-          rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        border-radius: 100px;
+        box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+          rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+          rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+          rgba(44, 187, 99, 0.15) 0 16px 32px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
+          sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
         &:hover {
-          background-color: rgb(67, 215, 158);
+          box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+            rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+            rgba(44, 187, 99, 0.25) 0 4px 8px,
+            rgba(44, 187, 99, 0.25) 0 8px 16px,
+            rgba(44, 187, 99, 0.25) 0 16px 32px;
+          transform: scale(1.05) rotate(-1deg);
         }
       }
 
       #highscore-name {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 2em;
+        text-align: center;
+        width: 200px;
+        height: 2.5em;
       }
 
       .add-to-highscore-button {
-        background-color: rgb(186, 191, 36);
+        color: white;
+        background-color: rgb(168, 172, 27);
+        box-shadow: rgba(187, 180, 44, 0.2) 0 -25px 18px -14px inset,
+          rgba(187, 180, 44, 0.15) 0 1px 2px, rgba(187, 180, 44, 0.15) 0 2px 4px,
+          rgba(187, 180, 44, 0.15) 0 4px 8px,
+          rgba(187, 180, 44, 0.15) 0 8px 16px,
+          rgba(187, 180, 44, 0.15) 0 16px 32px;
         &:hover {
-          background-color: rgb(159, 174, 26);
+          box-shadow: rgba(187, 180, 44, 0.35) 0 -25px 18px -14px inset,
+            rgba(187, 180, 44, 0.25) 0 1px 2px,
+            rgba(187, 180, 44, 0.25) 0 2px 4px,
+            rgba(187, 180, 44, 0.25) 0 4px 8px,
+            rgba(187, 180, 44, 0.25) 0 8px 16px,
+            rgba(187, 180, 44, 0.25) 0 16px 32px;
+          background-color: rgb(129, 142, 13);
         }
       }
       span {
-        padding-top:1em;
-        font-size: 1.25em;
-        color: rgb(13, 168, 109);
+        padding-top: 1em;
+        font-size: 1.5em;
+        color: rgb(15, 121, 82);
         font-weight: bold;
-      }
-
-      p {
-        font-size: 1em;
-        color: rgb(104, 103, 103);
       }
       input,
       button,

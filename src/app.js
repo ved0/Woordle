@@ -28,7 +28,6 @@ app.post("/api/games", express.json(), (req, res) => {
   console.log(game.gameId);
   res.status(201).send(game.gameId);
   if (game.gameId == "404") {
-    console.log("lägger inte till");
     return;
   } else {
     GAMES.push(game);

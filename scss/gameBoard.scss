@@ -1,49 +1,69 @@
-
 .info-popup {
-    white-space: pre-wrap;
-    background-color: beige;
-    position: fixed;
-    padding: 5em 0;
-    left: 20%;
-    top: 25%;
-    width: 60%;
-    border: rgb(119, 109, 109) solid 1px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  }
+  white-space: pre-wrap;    
+  background-color: silver;
+  position: fixed;
+  padding: 4em 1em;
+  left: 20%;
+  top: 25%;
+  width: 60%;
+  border: rgb(119, 109, 109) solid 1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
 
-  .generic-button, .play-button {
-    cursor: pointer;
+.generic-button,
+.play-button {
+  background-color: rgb(19, 184, 121);
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin-inline: auto;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  &:hover {
+    background-color: rgb(14, 149, 97);
+    color: rgb(235, 229, 229);  
+    box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+      rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+      rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+      rgba(44, 187, 99, 0.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+.play-button {
+  width: 7em;
+  font-weight: bold;
+}
+
+.timer {
+  .text {
     display: block;
-    color: white;
-    margin-inline: auto;
-    margin-top: 1em;
-    background-color: rgb(19, 184, 121);
-    width: 125px;
-    height: 2em;
-    border: rgb(119, 109, 109) solid 1px;
-    font-weight: 600;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
-      rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-      rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    &:hover {
-      background-color: rgb(67, 215, 158);
-    }
+    font-weight: bold;
   }
+  margin-top: 1em;
+  #minute,
+  #second {
+    font-size: 1em !important;
+    display: inline-block;
+    margin: 0 !important;
+  }
+}
 
-  .timer {
-    .text {
-        display: block;
-        font-weight: bold;
-    }
-    margin-top: 1em;
-    #minute, #second {
-        font-size: 1em !important;
-        display: inline-block;
-        margin: 0 !important;
-    }
-  }
-
-  h4 {
-    color: rgb(104, 139, 126);
-  }
+h4 {
+  color: rgb(15, 121, 82);
+}

@@ -3,7 +3,7 @@ import guessWord from "../src/game-logic/algorithmA.js";
 describe("guessWord() - various inputs", () => {
   /*
   Testar så att två likadan ord ger tillabaka "correct" på varje bokstav.
-  */  
+  */
   test("Correct guess!", () => {
     const result = guessWord("word", "word");
     expect(result).toEqual([
@@ -43,7 +43,20 @@ describe("guessWord() - various inputs", () => {
       { letter: "r", result: "misplaced" },
     ]);
   });
-  
+
+  /*
+  Testar så att "rätta" bokstäver (dvs. samma plats och samma bokstav) returerar "correct" och deras dubbletter returera incorrect (ifall de inte upprepas i svaret). Bokstäver som finns med i svaret men på fel plats blir misplaced. De som inte finns blir incorrect.
+  */
+  test("Same character is both misplaced and on right positon => misplaced should be incorrect", () => {
+    const result = guessWord("llcl", "call");
+    expect(result).toEqual([
+      { letter: "l", result: "incorrect" },
+      { letter: "l", result: "misplaced" },
+      { letter: "c", result: "misplaced" },
+      { letter: "l", result: "correct" },
+    ]);
+  });
+
   /*
   Testar så att "rätta" bokstäver (dvs. samma plats och samma bokstav) returerar "correct" och deras dubbletter returera incorrect (ifall de inte upprepas i svaret). Bokstäver som finns med i svaret men på fel plats blir misplaced. De som inte finns blir incorrect.
   */

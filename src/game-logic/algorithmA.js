@@ -14,6 +14,19 @@ export default function guessWord(guess, answer) {
               c.result = "incorrect";
             }
           });
+        } else {
+          for (
+            let i = arrayToReturn.filter(
+              (c) => c.letter == char && c.result == "misplaced"
+            ).length;
+            i > answerInChar.filter((c) => c == char).length;
+            i--
+          ) {
+            const position = arrayToReturn.findIndex(
+              (i) => i.letter == char && i.result == "misplaced"
+            );
+            arrayToReturn[position].result = "incorrect";
+          }
         }
       } else {
         if (

@@ -3,24 +3,58 @@
   margin-inline: auto;
   margin-top: 2em;
   text-align: center;
+  font-family:Cascadia Code SemiBold;
   .top-10-all-time {
-    width: 70%;
+    width: fit-content;
+    padding: 0 2em;
     padding-top: 2em;
     padding-bottom: 3em;
     margin-inline: auto;
-    background-color: beige;
+    background-color: silver;
     opacity: 0.9;
 
     h1 {
-      color:rgb(131, 131, 131);
+      color: rgb(78, 77, 77);
     }
+
     .highscore-list {
       margin-inline: auto;
-      width: 70%;
+      width: fit-content;
       text-align: center;
+      tr {
+        td {
+          color: rgb(78, 77, 77);
+        }
+      }
+      .first-highscore {
+        td {
+          &:first-child {
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            color: rgb(236, 202, 51);
+            font-size: 2em;
+          }
+        }
+      }
+      .second-highscore {
+        td {
+          &:first-child {
+            color: rgb(174, 212, 222);
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            font-size: 1.6em;
+          }
+        }
+      }
+      .third-highscore {
+        td {
+          &:first-child {
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            color: rgb(189, 115, 36);
+            font-size: 1.3em;
+          }
+        }
+      }
       .highscore-list-header {
         th {
-          color:rgb(119, 118, 118);
           border-bottom: solid 2px black;
         }
       }

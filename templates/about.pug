@@ -4,8 +4,31 @@ block content
     main
         section(class="about-the-project")
             h2(class="project-header") Here you can read about the project
-            p(class="project-text") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            p(class="project-text") This project is a part of my course "Advanced Webdevelopment - Javascript Full Stack". The objective of this task was to build an application (Wordle game) with both frontend and backend in mind. The challenge in this assignment was to use all the skills I learned prior to this project and combine them into the finish product. I succeeded pretty well, if I may say it myself.
             h2(class="project-header") Techniques used
-            p(class="project-text") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            div(class="techniques")
+                div(class="front-end-techniques")
+                    h3 Frontend
+                    ul
+                        li vite
+                        li react
+                        li SSR with pug
+                        li sass
+                div(class="back-end-techniques")
+                    h3 Backend
+                    ul
+                        li express
+                        li nodeJS
+                        li mongoDB
             h2(class="project-header") Workflow
-            p(class="project-text") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            p(class="project-text") I started the project by creating a repository on github. Then I installed vite and sass into my project. With vite I created a new react project and styled a rough boilerplate for the frontend with sass. How the game should look like, with the intro page, buttons and later on the gameplay. 
+                br
+                br
+                |After that I jumped on the backend, by installing nodemon + express + pug (for templating and server side rendering, since that was a part of the assignment). I moved on by creating routes for the different parts of the application (Highscore, about the project page, the game) and creating corresponding templates for the routes. This was also a rough draft to begin with.
+                br
+                br
+                |The next step was creating a database (also a part of the assignment), so the player could submit a highscore and also to view the highscore list (Highscore in the header). I installed and used mongoDB for that. Made a Collection and wrote one method for adding a highscore and a second method for fetching the highscores.
+                br
+                br
+                |With all the major parts in place, I started connecting everything, and later on in an iterative process, the design to the page you are looking at came along.
+                span The functionality for guessing and picking a word was written in a previous assignment.

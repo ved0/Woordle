@@ -13,10 +13,32 @@ block content
                         th No. of guesses
                         th Time
                     each highscore, index in highscores
-                        tr
-                            td #{index+1}
-                            td #{highscore.name}
-                            td #{highscore.wordLength}
-                            td #{highscore.guesses}
-                            td #{highscore.time}
-                        
+                        if index==0
+                            tr(class="first-highscore")
+                                td #{index+1}
+                                td #{highscore.name}
+                                td #{highscore.wordLength}
+                                td #{highscore.guesses}
+                                td #{highscore.time}
+                        else if index==1
+                            tr(class="second-highscore")
+                                td #{index+1}
+                                td #{highscore.name}
+                                td #{highscore.wordLength}
+                                td #{highscore.guesses}
+                                td #{highscore.time}
+                        else if index==2
+                            tr(class="third-highscore")
+                                td #{index+1}
+                                td #{highscore.name}
+                                td #{highscore.wordLength}
+                                td #{highscore.guesses}
+                                td #{highscore.time}
+                        else
+                            tr
+                                td #{index+1}
+                                td #{highscore.name}
+                                td #{highscore.wordLength}
+                                td #{highscore.guesses}
+                                td #{highscore.time}
+

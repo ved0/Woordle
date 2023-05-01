@@ -1,18 +1,50 @@
-.header-list {
-    list-style-type: none;
-    padding-top: 2em;
-    
-    .header-list-item {
-        display: inline;
-        padding: 0em 2em;
-        a {
-            color: silver;
-            font-size: 1.5em;
-            text-decoration: none;
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
-            &:hover{
-                color: rgb(124, 124, 124);
-            }
-        } 
+.header-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  padding-top: 2em;
+  font-family: Cascadia Code SemiBold;
+
+  .header-list-item {
+    display: inline;
+    padding: 0em 2em;
+    a {
+      color: silver;
+      font-size: 1.5em;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(124, 124, 124);
+      }
     }
+  }
+}
+
+footer {
+  padding: 2em 0;
+  margin-top: 4em;
+  margin-inline: auto;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  background-color: rgb(142, 141, 141);
+  opacity: 0.9;
+  font-family: Cascadia Code SemiBold;
+  .contact-title {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+  .email {
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-left: 0.5em;
+    color: rgb(61, 232, 166);
+    &:hover {
+      color: rgb(52, 185, 134);
+    }
+  } 
 }

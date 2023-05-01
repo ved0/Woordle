@@ -1,3 +1,4 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 .row input {
   width: 2em;
   height: 2em;
@@ -9,38 +10,52 @@
 
 #root {
   text-align: center;
-  width: 100%;
+  width: 100vw;
 }
 #root .the-app {
   margin-inline: auto;
   margin-top: 2em;
-  padding: 0 1em;
-  padding-bottom: 1em;
+  padding: 1.5em 1em;
   width: fit-content;
   min-width: 345px;
   max-width: 960px;
-  border: 1px black solid;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: beige;
+  background-color: silver;
+  opacity: 0.9;
 }
-#root .the-app .intro h3 {
-  margin: 0;
+#root .the-app h1 {
+  font-family: Cascadia Code SemiBold;
   margin-bottom: 0.5em;
 }
+#root .the-app .intro h3 {
+  font-family: Cascadia Code SemiBold;
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+#root .the-app .intro h3:first-child {
+  margin-top: 0;
+}
 #root .the-app .intro p {
+  font-family: Ebrima;
   font-size: 1em;
   font-weight: 100;
   margin: 0;
-  margin-bottom: 0.5em;
-  color: rgb(104, 103, 103);
+  color: black;
+}
+#root .the-app .intro p span {
+  padding: 0 0.25em;
+}
+#root .the-app .start-game p,
+#root .the-app .start-game h3 {
+  font-family: Cascadia Code SemiBold;
 }
 #root .the-app .start-game #unique-letters {
   width: 2em;
 }
 #root .the-app .start-game label {
+  font-family: Ebrima;
   margin: 0 4px;
-  font-weight: 600;
-  color: rgb(104, 139, 126);
 }
 #root .the-app .start-game .word-length {
   font-weight: 600;
@@ -54,42 +69,55 @@
 #root .the-app .highscore-popup {
   white-space: pre-wrap;
 }
+#root .the-app .highscore-popup h3 {
+  color: rgb(129, 142, 13);
+  font-size: 2em;
+}
 #root .the-app .highscore-popup button,
 #root .the-app .highscore-popup .add-to-highscore-button {
-  cursor: pointer;
-  display: block;
-  margin-inline: auto;
-  margin-top: 1em;
-  color: white;
   background-color: rgb(19, 184, 121);
-  width: 125px;
-  height: 2em;
-  border: rgb(119, 109, 109) solid 1px;
-  font-weight: 600;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px, rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px, rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 #root .the-app .highscore-popup button:hover,
 #root .the-app .highscore-popup .add-to-highscore-button:hover {
-  background-color: rgb(67, 215, 158);
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px, rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px, rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
 #root .the-app .highscore-popup #highscore-name {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 2em;
+  text-align: center;
+  width: 200px;
+  height: 2.5em;
 }
 #root .the-app .highscore-popup .add-to-highscore-button {
-  background-color: rgb(186, 191, 36);
+  color: white;
+  background-color: rgb(168, 172, 27);
+  box-shadow: rgba(187, 180, 44, 0.2) 0 -25px 18px -14px inset, rgba(187, 180, 44, 0.15) 0 1px 2px, rgba(187, 180, 44, 0.15) 0 2px 4px, rgba(187, 180, 44, 0.15) 0 4px 8px, rgba(187, 180, 44, 0.15) 0 8px 16px, rgba(187, 180, 44, 0.15) 0 16px 32px;
 }
 #root .the-app .highscore-popup .add-to-highscore-button:hover {
-  background-color: rgb(159, 174, 26);
+  box-shadow: rgba(187, 180, 44, 0.35) 0 -25px 18px -14px inset, rgba(187, 180, 44, 0.25) 0 1px 2px, rgba(187, 180, 44, 0.25) 0 2px 4px, rgba(187, 180, 44, 0.25) 0 4px 8px, rgba(187, 180, 44, 0.25) 0 8px 16px, rgba(187, 180, 44, 0.25) 0 16px 32px;
+  background-color: rgb(129, 142, 13);
 }
 #root .the-app .highscore-popup span {
   padding-top: 1em;
-  font-size: 1.25em;
-  color: rgb(13, 168, 109);
+  font-size: 1.5em;
+  color: rgb(15, 121, 82);
   font-weight: bold;
-}
-#root .the-app .highscore-popup p {
-  font-size: 1em;
-  color: rgb(104, 103, 103);
 }
 #root .the-app .highscore-popup input,
 #root .the-app .highscore-popup button,
@@ -128,7 +156,11 @@
 
 .header-list {
   list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
   padding-top: 2em;
+  font-family: Cascadia Code SemiBold;
 }
 .header-list .header-list-item {
   display: inline;
@@ -137,29 +169,103 @@
 .header-list .header-list-item a {
   color: silver;
   font-size: 1.5em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-decoration: none;
 }
 .header-list .header-list-item a:hover {
   color: rgb(124, 124, 124);
 }
 
+footer {
+  padding: 2em 0;
+  margin-top: 4em;
+  margin-inline: auto;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  background-color: rgb(142, 141, 141);
+  opacity: 0.9;
+  font-family: Cascadia Code SemiBold;
+}
+footer .contact-title {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+footer .email {
+  text-decoration: none;
+  font-size: 1.5em;
+  margin-left: 0.5em;
+  color: rgb(61, 232, 166);
+}
+footer .email:hover {
+  color: rgb(52, 185, 134);
+}
+
 .about-the-project {
   margin-inline: auto;
   margin-top: 2em;
-  padding-bottom: 3em;
+  padding: 3em 0;
   width: 80vw;
-  height: 80vh;
+  height: fit-content;
+  background-color: silver;
   opacity: 0.9;
-  background-color: beige;
   text-align: center;
   overflow-wrap: break-word;
 }
-.about-the-project .project-header:first-child {
-  padding-top: 3em;
+.about-the-project .techniques {
+  margin-bottom: 1.5em;
+}
+.about-the-project .techniques .front-end-techniques h3,
+.about-the-project .techniques .back-end-techniques h3 {
+  font-size: 1.15em;
+  margin: 0.5em 0;
+  text-decoration: underline;
+}
+.about-the-project .techniques .front-end-techniques h3:first-child,
+.about-the-project .techniques .back-end-techniques h3:first-child {
+  margin-top: 1em;
+}
+.about-the-project .techniques .front-end-techniques ul,
+.about-the-project .techniques .back-end-techniques ul {
+  padding: 0;
+  margin: 0;
+}
+.about-the-project .techniques .front-end-techniques ul li,
+.about-the-project .techniques .back-end-techniques ul li {
+  font-family: Cascadia Code SemiBold;
+  font-size: 1em;
+  font-weight: 100;
+  display: inline;
+  margin: 0 1em;
+}
+.about-the-project .front-end-techniques {
+  color: rgb(75, 118, 203);
+}
+.about-the-project .back-end-techniques {
+  color: rgb(110, 127, 118);
+}
+.about-the-project .project-header {
+  font-family: Cascadia Code SemiBold;
+  font-size: 1.35em;
+  margin: 0;
+  margin-bottom: 0.5em;
 }
 .about-the-project .project-text {
-  width: 80%;
+  width: 85%;
+  font-size: 1em;
+  font-family: Ebrima;
+  margin: 0;
+  margin-bottom: 1.5em;
   margin-inline: auto;
+}
+.about-the-project .project-text:last-child {
+  margin-bottom: 0;
+}
+.about-the-project .project-text span {
+  color: rgb(161, 107, 7);
+  margin-top: 1em;
+  display: block;
+  font-weight: 600;
 }
 
 .highscore {
@@ -167,33 +273,52 @@
   margin-inline: auto;
   margin-top: 2em;
   text-align: center;
+  font-family: Cascadia Code SemiBold;
 }
 .highscore .top-10-all-time {
-  width: 70%;
+  width: fit-content;
+  padding: 0 2em;
   padding-top: 2em;
   padding-bottom: 3em;
   margin-inline: auto;
-  background-color: beige;
+  background-color: silver;
   opacity: 0.9;
 }
 .highscore .top-10-all-time h1 {
-  color: rgb(131, 131, 131);
+  color: rgb(78, 77, 77);
 }
 .highscore .top-10-all-time .highscore-list {
   margin-inline: auto;
-  width: 70%;
+  width: fit-content;
   text-align: center;
 }
+.highscore .top-10-all-time .highscore-list tr td {
+  color: rgb(78, 77, 77);
+}
+.highscore .top-10-all-time .highscore-list .first-highscore td:first-child {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: rgb(236, 202, 51);
+  font-size: 2em;
+}
+.highscore .top-10-all-time .highscore-list .second-highscore td:first-child {
+  color: rgb(174, 212, 222);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 1.6em;
+}
+.highscore .top-10-all-time .highscore-list .third-highscore td:first-child {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: rgb(189, 115, 36);
+  font-size: 1.3em;
+}
 .highscore .top-10-all-time .highscore-list .highscore-list-header th {
-  color: rgb(119, 118, 118);
   border-bottom: solid 2px black;
 }
 
 .info-popup {
   white-space: pre-wrap;
-  background-color: beige;
+  background-color: silver;
   position: fixed;
-  padding: 5em 0;
+  padding: 4em 1em;
   left: 20%;
   top: 25%;
   width: 60%;
@@ -201,21 +326,38 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-.generic-button, .play-button {
+.generic-button,
+.play-button {
+  background-color: rgb(19, 184, 121);
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px, rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px, rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: white;
   cursor: pointer;
   display: block;
-  color: white;
   margin-inline: auto;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
   margin-top: 1em;
-  background-color: rgb(19, 184, 121);
-  width: 125px;
-  height: 2em;
-  border: rgb(119, 109, 109) solid 1px;
-  font-weight: 600;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-.generic-button:hover, .play-button:hover {
-  background-color: rgb(67, 215, 158);
+.generic-button:hover,
+.play-button:hover {
+  background-color: rgb(14, 149, 97);
+  color: rgb(235, 229, 229);
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px, rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px, rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.play-button {
+  width: 7em;
+  font-weight: bold;
 }
 
 .timer {
@@ -225,19 +367,21 @@
   display: block;
   font-weight: bold;
 }
-.timer #minute, .timer #second {
+.timer #minute,
+.timer #second {
   font-size: 1em !important;
   display: inline-block;
   margin: 0 !important;
 }
 
 h4 {
-  color: rgb(104, 139, 126);
+  color: rgb(15, 121, 82);
 }
 
 body {
   background-image: url("../static/letters.jpg");
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
 }

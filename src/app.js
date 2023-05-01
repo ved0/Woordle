@@ -3,7 +3,7 @@ import * as uuid from "uuid";
 import { addHighscore, viewHighscore } from "./database/db.js";
 import pickOneWord from "./game-logic/algorithmB.js";
 import guessWord from "./game-logic/algorithmA.js";
-import wordList from "./wordList.js";
+import wordList from "./game-logic/wordList.js";
 
 const app = express();
 const GAMES = [];
@@ -24,8 +24,10 @@ app.post("/api/games", express.json(), (req, res) => {
     guesses: [],
     startTime: new Date(),
   };
+  /* För att testa spelet, vilket ord och gameID det är
   console.log(game.correctWord);
   console.log(game.gameId);
+  */
   res.status(201).send(game.gameId);
   if (game.gameId == "404") {
     return;

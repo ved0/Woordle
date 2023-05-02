@@ -90,11 +90,6 @@ app.post("/api/games/:gameId/highscore", express.json(), async (req, res) => {
     );
 });
 
-app.get("/api/highscores", async (req, res) => {
-  viewHighscore();
-  res.status(201).send("Need to fix this");
-});
-
 app.get("/", async (req, res) => {
   res.render("index");
 });

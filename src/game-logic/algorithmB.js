@@ -34,5 +34,3 @@ function hasMoreThanOneOccurrence(word) {
   }
   return moreThanOnce;
 }
-
-//console.log(algoritmB(WORD_LIST, 8, false));

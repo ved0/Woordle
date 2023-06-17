@@ -20,9 +20,7 @@ export async function addHighscore(highscore) {
 
 export async function viewHighscore() {
   try {
-    // console.log("connecting");
     await client.connect();
-    //   console.log("connected");
     const result = await client
       .db("Wordle")
       .collection("highscores")

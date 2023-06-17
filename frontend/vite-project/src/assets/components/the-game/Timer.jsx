@@ -9,7 +9,6 @@ const Timer = (props) => {
 
   const getTime = () => {
     const time = endTime - Date.now();
-    //console.log(time);
     if (time > 0) {
       setMinutes(Math.floor((time / 1000 / 60) % 60));
       setSeconds(Math.floor((time / 1000) % 60));

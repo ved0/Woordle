@@ -14,9 +14,6 @@ const HighscorePopup = (props) => {
       props.setMessage("Please fill in a valid name before submitting!");
       props.setInvalidGuess(true);
     } else {
-      console.log("kommer jag hit");
-      console.log(props.gameId);
-      console.log(name);
       const resp = await fetch("/api/games/" + props.gameId + "/highscore", {
         method: "POST",
         headers: {
@@ -29,9 +26,6 @@ const HighscorePopup = (props) => {
       });
       props.setInvalidGuess(true);
       props.setMessage("Thank you! \n Your highscore has been added to the list.");
-      console.log("kommer jag hitt efter post då");
-      /*  const data = await resp.json();
-      console.log(JSON.stringify(data));*/
     }
   };
 
